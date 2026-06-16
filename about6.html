@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <title>異國風味｜在地嚐 LocalBite</title>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="在地嚐 LocalBite，整合高雄在地小吃商品化、真空包裝、冷鏈物流與電商平台的學術展示網站。">
+<meta name="theme-color" content="#2C4A3E">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          primary: '#2C4A3E',
+          secondary: '#D97706',
+          accent: '#FBF7F0',
+          tea: '#E7EFE8',
+          ink: '#1F2933'
+        },
+        boxShadow: {
+          soft: '0 18px 60px rgba(44, 74, 62, 0.12)'
+        }
+      }
+    }
+  }
+</script>
+<style>
+  body { font-family: -apple-system, BlinkMacSystemFont, 'PingFang TC', 'Noto Sans TC', 'Microsoft JhengHei', sans-serif; }
+  .hero-grid {
+    background-image: radial-gradient(circle at 20% 20%, rgba(217,119,6,.22), transparent 28%), radial-gradient(circle at 80% 0%, rgba(255,255,255,.16), transparent 30%), linear-gradient(135deg, #2C4A3E 0%, #17352A 70%);
+  }
+  .grain { position: relative; overflow: hidden; }
+  .grain::after { content: ''; position: absolute; inset: 0; opacity: .08; pointer-events: none; background-image: linear-gradient(120deg, rgba(255,255,255,.18) 1px, transparent 1px); background-size: 18px 18px; }
+  .section-kicker { letter-spacing: .16em; }
+  .video-shell { aspect-ratio: 9 / 16; }
+  .wide-video-shell { aspect-ratio: 16 / 9; }
+  .cart-open { overflow: hidden; }
+  @media (max-width: 768px) { .mobile-panel { display: none; } .mobile-panel.is-open { display: block; } }
+</style>
+</head>
+<body class="bg-accent text-slate-800 antialiased min-h-screen flex flex-col">
+<div class="bg-primary text-white text-xs sm:text-sm py-2 px-4 text-center tracking-wide">
+  🎉 Academic Project Only｜高雄在地小吃 × 真空商品化 × 冷鏈宅配展示平台
+</div>
+<header class="bg-white/95 backdrop-blur sticky top-0 z-40 shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-3" aria-label="回到 LocalBite 首頁">
+      <div class="bg-secondary text-white p-2 rounded-xl font-black text-xl tracking-wider shadow-sm">LB</div>
+      <div>
+        <h1 class="text-xl font-black text-primary tracking-wide">在地嚐 LocalBite</h1>
+        <p class="text-[10px] text-slate-400 font-mono tracking-tight">LOCAL CUISINE & COLD-CHAIN PLATFORM</p>
+      </div>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600">
+      <a href="index.html" class="hover:text-secondary transition">在地小吃</a>
+      <a href="about6.html" class="hover:text-secondary transition">異國風味</a>
+      <a href="index.html#business-model" class="hover:text-secondary transition">商業模式</a>
+      <a href="index.html#milestones" class="hover:text-secondary transition">里程碑</a>
+      <a href="https://www.youtube.com/shorts/uqKw-XrDnYM" target="_blank" rel="noopener" class="hover:text-secondary transition">影片介紹</a>
+    </nav>
+    <div class="flex items-center gap-3 text-slate-600">
+      <button onclick="toggleMobileMenu()" class="md:hidden w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200" aria-label="開啟選單"><i class="fa-solid fa-bars"></i></button>
+      <button onclick="toggleCart()" class="relative w-10 h-10 rounded-full bg-slate-100 hover:bg-tea hover:text-primary transition" title="購物車">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span id="cart-count" class="absolute -top-1 -right-1 bg-secondary text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-bold">0</span>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="mobile-panel md:hidden border-t border-slate-100 bg-white px-4 py-4 text-sm font-semibold text-slate-600">
+    <div class="grid gap-3">
+      <a href="index.html" class="py-2">在地小吃</a>
+      <a href="about6.html" class="py-2">異國風味</a>
+      <a href="index.html#business-model" class="py-2">商業模式</a>
+      <a href="index.html#milestones" class="py-2">里程碑</a>
+      <a href="https://www.youtube.com/shorts/uqKw-XrDnYM" target="_blank" rel="noopener" class="py-2">影片介紹</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero-grid grain text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 grid lg:grid-cols-2 gap-12 items-center relative z-10">
+      <div class="space-y-6">
+        <span class="inline-flex items-center gap-2 bg-white/10 border border-white/15 px-4 py-2 rounded-full text-xs font-bold section-kicker uppercase"><i class="fa-solid fa-earth-asia text-secondary"></i> Global Flavors, Local Delivery</span>
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">把異國街邊美味，變成家中冰箱的即食選項。</h2>
+        <p class="text-emerald-50/90 text-base sm:text-lg leading-8 max-w-2xl">異國風味館鎖定高雄多元餐飲文化，將泰式、越式、菲式等特色料理轉化為可冷凍、可復熱、可宅配的商品。</p>
+        <div class="flex flex-col sm:flex-row gap-3"><a href="#global-products" class="bg-secondary hover:bg-amber-700 text-white font-bold px-6 py-3 rounded-2xl shadow-lg text-center">查看異國選品</a><a href="index.html#intro-video" class="bg-white/10 hover:bg-white/15 border border-white/20 text-white font-bold px-6 py-3 rounded-2xl text-center">觀看品牌影片</a></div>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="bg-white/10 border border-white/10 rounded-3xl p-6"><i class="fa-solid fa-fire text-secondary text-2xl"></i><h3 class="font-black text-xl mt-4">泰式香辣</h3><p class="text-sm text-emerald-50/80 mt-3 leading-6">打拋、綠咖哩、酸辣湯底等可復熱料理。</p></div>
+        <div class="bg-white/10 border border-white/10 rounded-3xl p-6"><i class="fa-solid fa-bread-slice text-secondary text-2xl"></i><h3 class="font-black text-xl mt-4">越式街食</h3><p class="text-sm text-emerald-50/80 mt-3 leading-6">越式法國麵包、湯粉與特製醬料。</p></div>
+        <div class="bg-white/10 border border-white/10 rounded-3xl p-6"><i class="fa-solid fa-fish text-secondary text-2xl"></i><h3 class="font-black text-xl mt-4">菲式家常</h3><p class="text-sm text-emerald-50/80 mt-3 leading-6">醃漬、酥炸與家庭分享包。</p></div>
+        <div class="bg-white/10 border border-white/10 rounded-3xl p-6"><i class="fa-solid fa-snowflake text-secondary text-2xl"></i><h3 class="font-black text-xl mt-4">冷鏈標準</h3><p class="text-sm text-emerald-50/80 mt-3 leading-6">分裝、真空、冷凍、復熱說明一體化。</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 sm:py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-3 gap-6">
+      <div class="rounded-[2rem] bg-accent p-8 border border-amber-100 shadow-soft"><p class="section-kicker text-xs font-black text-secondary uppercase">Curation</p><h2 class="text-2xl font-black text-primary mt-3">選品標準</h2><p class="text-slate-600 leading-8 mt-4">不是所有料理都適合冷凍宅配。LocalBite 會優先選擇復熱後風味穩定、份量清楚、能被標準化包裝的餐點。</p></div>
+      <div class="rounded-[2rem] bg-accent p-8 border border-amber-100 shadow-soft"><p class="section-kicker text-xs font-black text-secondary uppercase">Quality</p><h2 class="text-2xl font-black text-primary mt-3">品質設計</h2><p class="text-slate-600 leading-8 mt-4">每款商品都會附上加熱方式、保存條件與食用建議，降低消費者第一次購買的疑慮。</p></div>
+      <div class="rounded-[2rem] bg-primary p-8 shadow-soft text-white"><p class="section-kicker text-xs font-black text-secondary uppercase">Growth</p><h2 class="text-2xl font-black mt-3">成長機會</h2><p class="text-emerald-50 leading-8 mt-4">異國風味可作為第二階段品類擴張，服務美食探索族，也提升平台商品豐富度。</p></div>
+    </div>
+  </section>
+
+  <section id="global-products" class="py-16 sm:py-20 bg-accent">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+        <div><p class="section-kicker text-xs font-black text-secondary uppercase">Global Product Line</p><h2 class="text-3xl sm:text-4xl font-black text-primary mt-3">異國風味職人選品</h2><p class="text-slate-500 mt-3">以泰式、越式、菲式料理作為平台品類延伸，建立更多元的冷凍即食商品線。</p></div>
+        <a href="index.html#featured-products" class="text-sm font-bold text-secondary hover:text-amber-700">回到在地小吃選品 <i class="fa-solid fa-arrow-right ml-1"></i></a>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <article class="bg-white rounded-3xl shadow-soft overflow-hidden border border-slate-100 flex flex-col group">
+          <div class="relative bg-emerald-50 text-primary pt-[82%] overflow-hidden">
+            <div class="absolute inset-0 flex flex-col items-center justify-center p-5 text-center group-hover:scale-105 transition duration-300">
+              <i class="fa-solid fa-utensils text-4xl mb-3 opacity-70"></i>
+              <span class="font-black text-base">澄苑</span>
+              <span class="text-xs text-slate-500 mt-1">泰式打拋豬飯｜即食包</span>
+            </div>
+            <span class="absolute top-4 left-4 bg-secondary text-white text-[10px] font-black px-3 py-1 rounded-full shadow-sm">人氣爆款</span>
+          </div>
+          <div class="p-5 flex-grow flex flex-col justify-between gap-4">
+            <div>
+              <h4 class="font-black text-slate-900 text-base leading-relaxed">【澄苑】泰式打拋豬飯｜即食包</h4>
+              <p class="text-sm text-slate-500 mt-2 leading-relaxed">以九層塔、辣椒與魚露香氣還原泰式街邊料理，微波即可享用。</p>
+            </div>
+            <div class="flex items-end justify-between gap-3">
+              <div><p class="text-[11px] text-slate-400">冷凍宅配示意價</p><span class="text-secondary font-black text-xl">NT$ 188</span></div>
+              <button onclick="addToCart('lb-global-1', '【澄苑】泰式打拋豬飯｜即食包', 188)" class="bg-primary hover:bg-emerald-900 text-white text-xs font-bold px-4 py-3 rounded-xl transition flex items-center gap-2"><i class="fa-solid fa-plus text-[10px]"></i> 加入</button>
+            </div>
+          </div>
+        </article>
+<article class="bg-white rounded-3xl shadow-soft overflow-hidden border border-slate-100 flex flex-col group">
+          <div class="relative bg-amber-50 text-amber-900 pt-[82%] overflow-hidden">
+            <div class="absolute inset-0 flex flex-col items-center justify-center p-5 text-center group-hover:scale-105 transition duration-300">
+              <i class="fa-solid fa-bread-slice text-4xl mb-3 opacity-70"></i>
+              <span class="font-black text-base">阿釧越南經典美食</span>
+              <span class="text-xs text-slate-500 mt-1">越式法國麵包｜3入</span>
+            </div>
+            <span class="absolute top-4 left-4 bg-secondary text-white text-[10px] font-black px-3 py-1 rounded-full shadow-sm">異國街食</span>
+          </div>
+          <div class="p-5 flex-grow flex flex-col justify-between gap-4">
+            <div>
+              <h4 class="font-black text-slate-900 text-base leading-relaxed">【阿釧越南經典美食】越式法國麵包｜3入</h4>
+              <p class="text-sm text-slate-500 mt-2 leading-relaxed">特製醬、越南火腿與蔬菜風味分裝，適合冷藏配送後快速復熱。</p>
+            </div>
+            <div class="flex items-end justify-between gap-3">
+              <div><p class="text-[11px] text-slate-400">冷凍宅配示意價</p><span class="text-secondary font-black text-xl">NT$ 200</span></div>
+              <button onclick="addToCart('lb-global-2', '【阿釧越南經典美食】越式法國麵包｜3入', 200)" class="bg-primary hover:bg-emerald-900 text-white text-xs font-bold px-4 py-3 rounded-xl transition flex items-center gap-2"><i class="fa-solid fa-plus text-[10px]"></i> 加入</button>
+            </div>
+          </div>
+        </article>
+<article class="bg-white rounded-3xl shadow-soft overflow-hidden border border-slate-100 flex flex-col group">
+          <div class="relative bg-red-50 text-red-900 pt-[82%] overflow-hidden">
+            <div class="absolute inset-0 flex flex-col items-center justify-center p-5 text-center group-hover:scale-105 transition duration-300">
+              <i class="fa-solid fa-pepper-hot text-4xl mb-3 opacity-70"></i>
+              <span class="font-black text-base">鑫泰式料理館</span>
+              <span class="text-xs text-slate-500 mt-1">綠咖哩雞肉湯｜家庭號</span>
+            </div>
+            <span class="absolute top-4 left-4 bg-secondary text-white text-[10px] font-black px-3 py-1 rounded-full shadow-sm">微辣熱銷</span>
+          </div>
+          <div class="p-5 flex-grow flex flex-col justify-between gap-4">
+            <div>
+              <h4 class="font-black text-slate-900 text-base leading-relaxed">【鑫泰式料理館】綠咖哩雞肉湯｜家庭號</h4>
+              <p class="text-sm text-slate-500 mt-2 leading-relaxed">椰奶、綠咖哩與雞肉湯底標準化，保留泰式料理的香辣層次。</p>
+            </div>
+            <div class="flex items-end justify-between gap-3">
+              <div><p class="text-[11px] text-slate-400">冷凍宅配示意價</p><span class="text-secondary font-black text-xl">NT$ 150</span></div>
+              <button onclick="addToCart('lb-global-3', '【鑫泰式料理館】綠咖哩雞肉湯｜家庭號', 150)" class="bg-primary hover:bg-emerald-900 text-white text-xs font-bold px-4 py-3 rounded-xl transition flex items-center gap-2"><i class="fa-solid fa-plus text-[10px]"></i> 加入</button>
+            </div>
+          </div>
+        </article>
+<article class="bg-white rounded-3xl shadow-soft overflow-hidden border border-slate-100 flex flex-col group">
+          <div class="relative bg-blue-50 text-blue-900 pt-[82%] overflow-hidden">
+            <div class="absolute inset-0 flex flex-col items-center justify-center p-5 text-center group-hover:scale-105 transition duration-300">
+              <i class="fa-solid fa-fish text-4xl mb-3 opacity-70"></i>
+              <span class="font-black text-base">泰菲屋 Thai Phil House</span>
+              <span class="text-xs text-slate-500 mt-1">菲式酥炸虱目魚｜1入</span>
+            </div>
+            <span class="absolute top-4 left-4 bg-secondary text-white text-[10px] font-black px-3 py-1 rounded-full shadow-sm">限量供應</span>
+          </div>
+          <div class="p-5 flex-grow flex flex-col justify-between gap-4">
+            <div>
+              <h4 class="font-black text-slate-900 text-base leading-relaxed">【泰菲屋 Thai Phil House】菲式酥炸虱目魚｜1入</h4>
+              <p class="text-sm text-slate-500 mt-2 leading-relaxed">以菲式醃漬與酥炸工法設計，適合家庭號分享與加菜場景。</p>
+            </div>
+            <div class="flex items-end justify-between gap-3">
+              <div><p class="text-[11px] text-slate-400">冷凍宅配示意價</p><span class="text-secondary font-black text-xl">NT$ 150</span></div>
+              <button onclick="addToCart('lb-global-4', '【泰菲屋 Thai Phil House】菲式酥炸虱目魚｜1入', 150)" class="bg-primary hover:bg-emerald-900 text-white text-xs font-bold px-4 py-3 rounded-xl transition flex items-center gap-2"><i class="fa-solid fa-plus text-[10px]"></i> 加入</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 sm:py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-[.85fr_1.15fr] gap-10 items-center">
+      <div class="space-y-5"><p class="section-kicker text-xs font-black text-secondary uppercase">Service Design</p><h2 class="text-3xl sm:text-4xl font-black text-primary">從餐廳到餐桌，每一步都要能被複製。</h2><p class="text-slate-600 leading-8">異國料理的風味落差比一般小吃更明顯，因此平台不只上架商品，也要協助店家整理復熱流程、包裝份量與配送規格。</p></div>
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="rounded-3xl bg-accent p-6 border border-amber-100"><span class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-black">1</span><h3 class="font-black text-primary mt-4">標準食譜</h3><p class="text-sm text-slate-500 mt-2 leading-6">確認醬料、湯底、配料比例。</p></div>
+        <div class="rounded-3xl bg-accent p-6 border border-amber-100"><span class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-black">2</span><h3 class="font-black text-primary mt-4">真空分裝</h3><p class="text-sm text-slate-500 mt-2 leading-6">依照單人份與家庭號建立規格。</p></div>
+        <div class="rounded-3xl bg-accent p-6 border border-amber-100"><span class="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center font-black">3</span><h3 class="font-black text-primary mt-4">冷凍測試</h3><p class="text-sm text-slate-500 mt-2 leading-6">確認復熱後口感與香氣穩定。</p></div>
+        <div class="rounded-3xl bg-accent p-6 border border-amber-100"><span class="w-10 h-10 bg-secondary text-white rounded-full flex items-center justify-center font-black">4</span><h3 class="font-black text-primary mt-4">內容行銷</h3><p class="text-sm text-slate-500 mt-2 leading-6">短影音開箱、加熱教學與團購文案。</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden hidden" aria-modal="true" role="dialog">
+  <div onclick="toggleCart()" class="absolute inset-0 bg-slate-900/55 backdrop-blur-sm"></div>
+  <div class="absolute inset-y-0 right-0 max-w-full flex pl-8 sm:pl-10">
+    <div class="w-screen max-w-md bg-white shadow-2xl flex flex-col">
+      <div class="px-6 py-5 bg-slate-50 border-b border-slate-200 flex items-center justify-between">
+        <h3 class="text-base font-bold text-primary flex items-center gap-2"><i class="fa-solid fa-cart-shopping text-secondary"></i> 我的採購清單</h3>
+        <button onclick="toggleCart()" class="w-9 h-9 rounded-full bg-white text-slate-400 hover:text-slate-700 hover:bg-slate-100"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4"></div>
+      <div class="border-t border-slate-200 px-6 py-5 bg-slate-50 space-y-4">
+        <div class="flex justify-between text-sm text-slate-600"><span>商品小計</span><span id="cart-subtotal" class="font-medium text-slate-800">NT$ 0</span></div>
+        <div class="flex justify-between text-sm text-slate-600"><span>冷鏈運費（滿 NT$1,000 免運）</span><span id="cart-shipping" class="font-medium text-slate-800">NT$ 0</span></div>
+        <div class="flex justify-between text-base font-bold text-slate-900 pt-2 border-t border-dashed border-slate-200"><span>總計金額</span><span id="cart-total" class="text-secondary text-lg">NT$ 0</span></div>
+        <button onclick="alert('本網站為學術展示用途，尚未開通實際訂購、金流與配送功能。')" class="w-full bg-secondary hover:bg-amber-700 text-white font-bold py-3 rounded-xl shadow-sm transition tracking-wider text-sm flex items-center justify-center gap-2">前往確認訂單 <i class="fa-solid fa-arrow-right text-xs"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="bg-slate-950 text-slate-400 text-xs mt-auto">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+    <div class="space-y-3 md:col-span-2">
+      <h4 class="text-sm font-bold text-white tracking-wider">關於在地嚐 LocalBite</h4>
+      <p class="leading-relaxed font-light max-w-2xl">LocalBite 是一個整合「在地小吃商品化、真空包裝、冷鏈物流與電商平台」的學術創業展示專案，目標是讓高雄巷弄裡的職人料理被更多人看見，也讓消費者在家就能吃到有品質保障的在地美味。</p>
+    </div>
+    <div class="space-y-3">
+      <h4 class="text-sm font-bold text-white tracking-wider">展示聲明</h4>
+      <p class="leading-relaxed font-light text-slate-500">本網站僅供大專院校課程報告與商業模式展示，商品、訂單、金流與物流皆為模擬內容。</p>
+    </div>
+    <div class="space-y-3">
+      <h4 class="text-sm font-bold text-white tracking-wider">模擬客服資訊</h4>
+      <p>服務時間：週一至週五 09:00 - 18:00</p>
+      <p>合作信箱：vuoffice01@nkust.edu.tw</p>
+      <p>服務客服：余冠霖</p>
+    </div>
+  </div>
+  <div class="bg-black py-4 text-center text-slate-600 border-t border-slate-900">2026 © 在地嚐 LocalBite｜數位行銷期末報告小組專用網頁｜僅供學術成果展示</div>
+</footer>
+<script>
+  const STORAGE_KEY = 'localbite-cart-v2';
+  let cart = [];
+
+  function loadCart() {
+    try { cart = JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch (e) { cart = []; }
+    updateCartUI();
+  }
+  function saveCart() { localStorage.setItem(STORAGE_KEY, JSON.stringify(cart)); }
+  function toggleMobileMenu() {
+    const menu = document.getElementById('mobile-menu');
+    if (menu) menu.classList.toggle('is-open');
+  }
+  function toggleCart() {
+    const drawer = document.getElementById('cart-drawer');
+    drawer.classList.toggle('hidden');
+    document.body.classList.toggle('cart-open', !drawer.classList.contains('hidden'));
+  }
+  function addToCart(id, name, price) {
+    const existing = cart.find(item => item.id === id);
+    if (existing) existing.quantity += 1;
+    else cart.push({ id, name, price, quantity: 1 });
+    saveCart();
+    updateCartUI();
+    document.getElementById('cart-drawer').classList.remove('hidden');
+    document.body.classList.add('cart-open');
+  }
+  function changeQuantity(id, delta) {
+    const item = cart.find(item => item.id === id);
+    if (!item) return;
+    item.quantity += delta;
+    if (item.quantity <= 0) cart = cart.filter(i => i.id !== id);
+    saveCart();
+    updateCartUI();
+  }
+  function clearCart() {
+    cart = [];
+    saveCart();
+    updateCartUI();
+  }
+  function money(n) { return `NT$ ${Number(n).toLocaleString('zh-TW')}`; }
+  function updateCartUI() {
+    const container = document.getElementById('cart-items-container');
+    const countBadge = document.getElementById('cart-count');
+    const subtotalEl = document.getElementById('cart-subtotal');
+    const shippingEl = document.getElementById('cart-shipping');
+    const totalEl = document.getElementById('cart-total');
+    if (!container || !countBadge) return;
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    countBadge.innerText = totalItems;
+    if (cart.length === 0) {
+      container.innerHTML = `<div class="text-center py-20 text-slate-400 space-y-3"><i class="fa-solid fa-basket-shopping text-5xl block text-slate-300"></i><p class="text-sm">購物車目前是空的</p><p class="text-xs text-slate-400">加入商品後，系統會自動估算冷鏈運費。</p></div>`;
+      subtotalEl.innerText = 'NT$ 0'; shippingEl.innerText = 'NT$ 0'; totalEl.innerText = 'NT$ 0';
+      return;
+    }
+    let subtotal = 0;
+    let html = '<div class="space-y-4">';
+    cart.forEach(item => {
+      subtotal += item.price * item.quantity;
+      html += `<div class="flex items-center justify-between border-b border-slate-100 pb-4 gap-4"><div class="flex-1"><h5 class="text-xs font-bold text-slate-800 leading-relaxed">${item.name}</h5><span class="text-xs text-secondary font-semibold">${money(item.price)}</span></div><div class="flex items-center gap-2"><button onclick="changeQuantity('${item.id}', -1)" class="w-7 h-7 rounded bg-slate-100 hover:bg-slate-200 text-xs font-bold text-slate-600">-</button><span class="text-xs font-bold w-6 text-center text-slate-800">${item.quantity}</span><button onclick="changeQuantity('${item.id}', 1)" class="w-7 h-7 rounded bg-slate-100 hover:bg-slate-200 text-xs font-bold text-slate-600">+</button></div></div>`;
+    });
+    html += '<button onclick="clearCart()" class="text-xs text-slate-400 hover:text-red-500 underline underline-offset-4">清空購物車</button></div>';
+    container.innerHTML = html;
+    const shipping = subtotal >= 1000 ? 0 : 160;
+    subtotalEl.innerText = money(subtotal);
+    shippingEl.innerText = shipping === 0 ? '免運費' : money(shipping);
+    totalEl.innerText = money(subtotal + shipping);
+  }
+  document.addEventListener('DOMContentLoaded', loadCart);
+</script>
+</body>
+</html>
